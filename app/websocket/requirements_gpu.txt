@@ -1,2 +1,2 @@
 -r requirements/requirements_base.txt
--r requirements/requirements_cpu.txt
+-r requirements/requirements_gpu.txt
