@@ -1,3 +1,3 @@
 #!/bin/bash
-exec gunicorn -k flask_sockets.worker websocket_app:app \
+exec gunicorn --config /gunicorn.conf --log-config /logging.conf -k flask_sockets.worker websocket_app:app \
 "$@"

@@ -4,7 +4,8 @@ RUN apt-get install -y git
 COPY ./requirements.txt /app/requirements.txt
 WORKDIR /app
 RUN pip3 install -r requirements.txt
+COPY logging.conf /logging.conf
+COPY gunicorn.conf /gunicorn.conf
 COPY . /app
 WORKDIR /app
-ENTRYPOINT ["gunicorn"]
-CMD ["gateway:app"]
+ENTRYPOINT ["gunicorn", "--config", "/gunicorn.conf", "--log-config", "/logging.conf", "gateway:app"]
